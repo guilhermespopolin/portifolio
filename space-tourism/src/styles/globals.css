@@ -1,5 +1,7 @@
-/* CSS Rest */
+/* --------------------------------------------------------- */
+/* CSS Reset                                                 */
 /* Inspired on: https://piccalil.li/blog/a-modern-css-reset/ */
+/* --------------------------------------------------------- */
 
 /* Box sizing rules */
 *,
@@ -20,11 +22,6 @@ blockquote,
 dl,
 dd {
   margin: 0;
-}
-
-body {
-  min-height: 100vh;
-  line-height: 1.5;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -79,4 +76,20 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* ---------------------------- */
+/* Utility classes              */
+/* ---------------------------- */
+/* Visually hide content making it available for screen readers only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
