@@ -1,7 +1,10 @@
-import styled from "styled-components";
+import cx from "classnames";
 
-export const Container = styled.div`
-  padding-inline: 2em;
-  margin-inline: auto;
-  max-width: 80rem;
-`;
+export type ContainerProps = React.HTMLAttributes<HTMLDivElement>;
+
+export const Container = ({ className, ...others }: ContainerProps) => (
+  <div
+    className={cx("max-w-5xl mx-auto px-4 md:px-8", className)}
+    {...others}
+  />
+);
