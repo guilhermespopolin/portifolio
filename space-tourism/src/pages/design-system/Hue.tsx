@@ -1,44 +1,31 @@
-import styled from "styled-components";
+import cx from "classnames";
 
 import { hexToRgb } from "./color-converter.helper";
 
-export const HueBox = styled.div({
-  display: "flex",
-  flexDirection: "column",
-  gap: "0.5rem",
-});
-
-const Sample = styled.div<{ color: string }>(({ theme, color }) => ({
-  padding: "3rem",
-  border: `1px solid hsl(${theme.colors.hsl.white})`,
-  backgroundColor: color,
-}));
-
-const Format = styled.span(({ theme }) => ({
-  marginRight: "0.5rem",
-  color: `hsl(${theme.colors.hsl.white} / 0.6)`,
-}));
-
-type HueProps = {
-  hex: string;
+export type HueProps = React.HTMLAttributes<HTMLDivElement> & {
+  color: string;
 };
 
-export const Hue = ({ hex }: HueProps) => {
-  const rgb = hexToRgb(hex);
+export const Hue = ({ className, color, ...others }: HueProps) => {
+  const rgb = hexToRgb(color);
 
   return (
-    <HueBox>
-      <Sample color={hex} />
+    <div
+      className={cx("flex flex-col gap-2 text-sm md:text-lg", className)}
+      {...others}
+    >
+      <div
+        style={{ backgroundColor: color }}
+        className={`border border-white pt-12 px-4 pb-4 text-neutral-500 uppercase`}
+      >
+        <p>{color}</p>
+      </div>
       <div>
         <p>
-          <Format>Hex</Format>
-          {hex}
-        </p>
-        <p>
-          <Format>RGB</Format>
+          <span className="text-accent-500 mr-1 mb:mr-2">RGB</span>
           {`${rgb.r}, ${rgb.g}, ${rgb.b}`}
         </p>
       </div>
-    </HueBox>
+    </div>
   );
 };
