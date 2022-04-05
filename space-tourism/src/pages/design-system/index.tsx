@@ -4,6 +4,7 @@ import Head from "next/head";
 import { Container } from "@/components/Container";
 import { Heading } from "@/components/Heading";
 import { NumberedTitle } from "@/components/NumberedTitle";
+import { ExploreLink } from "@/components/ExploreLink";
 import { Hue } from "./Hue";
 
 const DesignSystemPage: NextPage = () => {
@@ -12,7 +13,7 @@ const DesignSystemPage: NextPage = () => {
       <Head>
         <title>Space Tourism - Design System</title>
       </Head>
-      <Container className="py-4 md:py-8">
+      <Container className="flex flex-col gap-8 md:gap-10 py-4 md:py-8">
         <section id="colors" className="flex flex-col gap-4 md:gap-6">
           <NumberedTitle index="00">Colors</NumberedTitle>
           <div className="flex gap-2 md:gap-4">
@@ -22,10 +23,7 @@ const DesignSystemPage: NextPage = () => {
           </div>
         </section>
 
-        <section
-          id="typography"
-          className="flex flex-col gap-2 md:gap-4 my-4 md:my-5"
-        >
+        <section id="typography" className="flex flex-col gap-4 md:gap-6">
           <NumberedTitle index="01">Typography</NumberedTitle>
           <div className="flex flex-wrap md:flex-nowrap gap-6">
             {/* Headings */}
@@ -104,6 +102,13 @@ const DesignSystemPage: NextPage = () => {
                 </p>
               </div>
             </div>
+          </div>
+        </section>
+
+        <section id="controls" className="flex flex-col gap-4 md:gap-6">
+          <NumberedTitle index="03">Interactive Elements</NumberedTitle>
+          <div>
+            <ExploreLink href="#">Explore</ExploreLink>
           </div>
         </section>
       </Container>
