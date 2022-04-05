@@ -5,6 +5,7 @@ import { Container } from "@/components/Container";
 import { Heading } from "@/components/Heading";
 import { NumberedTitle } from "@/components/NumberedTitle";
 import { ExploreLink } from "@/components/ExploreLink";
+import { Navigation } from "@/components/Navigation";
 import { Hue } from "./Hue";
 
 const DesignSystemPage: NextPage = () => {
@@ -107,6 +108,15 @@ const DesignSystemPage: NextPage = () => {
 
         <section id="controls" className="flex flex-col gap-4 md:gap-6">
           <NumberedTitle index="03">Interactive Elements</NumberedTitle>
+          <div>
+            <Navigation
+              links={[
+                { label: "Active", href: "#" },
+                { label: "Hovered", href: "#" },
+                { label: "Idle", href: "#" },
+              ]}
+            />
+          </div>
           <div>
             <ExploreLink href="#">Explore</ExploreLink>
           </div>
