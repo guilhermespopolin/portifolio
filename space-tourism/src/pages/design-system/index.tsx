@@ -13,10 +13,6 @@ const DesignSystemPage: NextPage = () => {
         <title>Space Tourism - Design System</title>
       </Head>
       <Container className="py-4 md:py-8">
-        <Heading className="text-center mb-4" level={2}>
-          Design System
-        </Heading>
-
         <section id="colors" className="flex flex-col gap-4 md:gap-6">
           <NumberedTitle index="00">Colors</NumberedTitle>
           <div className="flex gap-2 md:gap-4">
@@ -89,7 +85,7 @@ const DesignSystemPage: NextPage = () => {
               </div>
               <div>
                 <p className="text-accent-500">Body Text</p>
-                <p>
+                <p className="text-justify">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
                   in ornare ipsum, id dapibus magna. Nulla facilisi. Integer
                   nisl elit, euismod quis erat sed, convallis condimentum arcu.
