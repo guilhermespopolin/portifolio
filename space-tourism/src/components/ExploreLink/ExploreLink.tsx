@@ -6,7 +6,6 @@ export const ExploreLink = ({ className, ...others }: ExploreLinkProps) => (
   <a
     className={cx(
       "relative",
-      "outline-none",
       "inline-flex",
       "items-center",
       "justify-center",
