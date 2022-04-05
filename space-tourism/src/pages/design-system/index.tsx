@@ -6,6 +6,7 @@ import { Heading } from "@/components/Heading";
 import { NumberedTitle } from "@/components/NumberedTitle";
 import { ExploreLink } from "@/components/ExploreLink";
 import { Navigation } from "@/components/Navigation";
+import { Tabs, Tab } from "@/components/Tabs";
 import { Hue } from "./Hue";
 
 const DesignSystemPage: NextPage = () => {
@@ -117,8 +118,15 @@ const DesignSystemPage: NextPage = () => {
               ]}
             />
           </div>
-          <div>
+          <div className="mx-8 my-10">
             <ExploreLink href="#">Explore</ExploreLink>
+          </div>
+          <div>
+            <Tabs>
+              <Tab />
+              <Tab />
+              <Tab />
+            </Tabs>
           </div>
         </section>
       </Container>
