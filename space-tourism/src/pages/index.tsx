@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 
 import Head from "next/head";
 import { Container } from "@/components/Container";
+import { Heading } from "@/components/Heading";
 
 const Home: NextPage = () => {
   return (
@@ -15,7 +16,9 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Container>
-        <h1>Space Tourism</h1>
+        <Heading className="text-center" level={1}>
+          Space Tourism
+        </Heading>
       </Container>
     </>
   );
