@@ -22,6 +22,7 @@ export const Navigation = ({ className, links }: NavigationProps) => {
 
           return (
             <li
+              key={index}
               className={cx(
                 "py-6",
                 "px-4",
