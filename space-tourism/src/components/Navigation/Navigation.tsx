@@ -12,8 +12,8 @@ export const Navigation = ({ className, links }: NavigationProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <nav className={cx("font-sansCond", className)}>
-      <ul className="flex gap-4">
+    <nav className={cx("font-sansCond bg-primary-700", className)}>
+      <ul className="flex justify-center gap-8">
         {links.map(({ label, href }, index) => {
           const paddedIndex = index.toString().padStart(2, "0");
           const isActive = activeIndex === index;
@@ -23,7 +23,7 @@ export const Navigation = ({ className, links }: NavigationProps) => {
           return (
             <li
               className={cx(
-                "py-3",
+                "py-6",
                 "px-4",
                 "border-b-4",
                 "border-b-transparent",
