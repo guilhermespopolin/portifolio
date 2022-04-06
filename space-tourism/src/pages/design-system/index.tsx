@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import type { NextPage } from "next";
 
 import Head from "next/head";
@@ -10,11 +12,16 @@ import { Tabs, Tab } from "@/components/Tabs";
 import { Hue } from "./Hue";
 
 const DesignSystemPage: NextPage = () => {
+  const [selectedTabIndex, setSelectedTabIndex] = useState(0);
+
   return (
     <>
       <Head>
         <title>Space Tourism - Design System</title>
       </Head>
+      <header className="py-6 text-center">
+        <Heading level={1}>Design System</Heading>
+      </header>
       <Container className="flex flex-col gap-8 md:gap-10 py-4 md:py-8">
         <section id="colors" className="flex flex-col gap-4 md:gap-6">
           <NumberedTitle index="00">Colors</NumberedTitle>
@@ -117,16 +124,26 @@ const DesignSystemPage: NextPage = () => {
                 { label: "Idle", href: "#" },
               ]}
             />
+            <p className="py-4 text-accent-500 text-center">Navigation Bar</p>
           </div>
-          <div className="mx-8 my-10">
-            <ExploreLink href="#">Explore</ExploreLink>
-          </div>
-          <div>
-            <Tabs>
-              <Tab />
-              <Tab />
-              <Tab />
-            </Tabs>
+          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8">
+            <div>
+              <ExploreLink href="#">Explore</ExploreLink>
+              <p className="py-4 text-center text-accent-500">
+                Landing Page Main Button
+              </p>
+            </div>
+            <div>
+              <Tabs
+                value={selectedTabIndex}
+                onChange={(index) => setSelectedTabIndex(index)}
+              >
+                <Tab label="Moon" />
+                <Tab label="Mars" />
+                <Tab label="Europa" />
+              </Tabs>
+              <p className="py-4 text-center text-accent-500">Tabs</p>
+            </div>
           </div>
         </section>
       </Container>
