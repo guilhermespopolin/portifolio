@@ -19,10 +19,10 @@ const DesignSystemPage: NextPage = () => {
       <Head>
         <title>Space Tourism - Design System</title>
       </Head>
-      <header className="py-6 text-center">
-        <Heading level={1}>Design System</Heading>
-      </header>
       <Container className="flex flex-col gap-8 md:gap-10 py-4 md:py-8">
+        <Heading className="text-center" level={1}>
+          Design System
+        </Heading>
         <section id="colors" className="flex flex-col gap-4 md:gap-6">
           <NumberedTitle index="00">Colors</NumberedTitle>
           <div className="flex gap-2 md:gap-4">

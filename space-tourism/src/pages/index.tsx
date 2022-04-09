@@ -15,7 +15,7 @@ const Home: NextPage = () => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container>
+      <Container className="py-4 md:py-8">
         <Heading className="text-center" level={1}>
           Space Tourism
         </Heading>
