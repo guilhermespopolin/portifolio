@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import type { NextPage } from "next";
 
 import Head from "next/head";
@@ -8,12 +6,10 @@ import { Heading } from "@/components/Heading";
 import { NumberedTitle } from "@/components/NumberedTitle";
 import { ExploreLink } from "@/components/ExploreLink";
 import { Navigation } from "@/components/Navigation";
-import { Tabs, Tab } from "@/components/Tabs";
+import { Tabs } from "@/components/Tabs";
 import { Hue } from "./Hue";
 
 const DesignSystemPage: NextPage = () => {
-  const [selectedTabIndex, setSelectedTabIndex] = useState(0);
-
   return (
     <>
       <Head>
@@ -135,13 +131,16 @@ const DesignSystemPage: NextPage = () => {
             </div>
             <div>
               <Tabs
-                value={selectedTabIndex}
-                onChange={(index) => setSelectedTabIndex(index)}
-              >
-                <Tab label="Moon" />
-                <Tab label="Mars" />
-                <Tab label="Europa" />
-              </Tabs>
+                options={[
+                  { value: "moon", label: "Moon", content: null },
+                  { value: "mars", label: "Mars", content: null },
+                  {
+                    value: "europa",
+                    label: "Europa",
+                    content: null,
+                  },
+                ]}
+              />
               <p className="py-4 text-center text-accent-500">Tabs</p>
             </div>
           </div>
