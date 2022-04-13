@@ -1,70 +1,52 @@
-import React, { ReactElement } from "react";
-import cx from "classnames";
+import type { ReactNode, ComponentProps } from "react";
 
-export type TabProps = Omit<
-  React.ComponentPropsWithoutRef<"button">,
-  "children"
-> & { label: string };
+import * as RadixTabs from "@radix-ui/react-tabs";
 
-export function Tab({
-  className,
-  label,
-  "aria-selected": isActive,
-  ...others
-}: TabProps) {
+type TabOption = {
+  value: string;
+  label: string;
+  content: ReactNode;
+};
+
+export type TabsProps = Pick<
+  ComponentProps<typeof RadixTabs.Root>,
+  "defaultValue"
+> & {
+  options: Array<TabOption>;
+};
+
+export function Tabs({ options, defaultValue }: TabsProps) {
   return (
-    <button
-      {...others}
-      role="tab"
-      className={cx(
-        "py-3",
-        "px-2",
-        "font-sansCond",
-        "uppercase",
-        "tracking-wide",
-        "border-b-4",
-        "border-b-transparent",
-        "transition-colors",
-        "duration-300",
-        {
-          "border-b-primary-200": Boolean(isActive),
-          "hover:border-b-primary-400 focus:border-b-primary-400":
-            !Boolean(isActive),
-        },
-        className
-      )}
-    >
-      {label}
-    </button>
+    <RadixTabs.Root defaultValue={defaultValue}>
+      <RadixTabs.List className="flex items-center gap-2 max-w-fit">
+        {options.map(({ value, label }) => (
+          <RadixTabs.Trigger
+            key={value}
+            className={[
+              "py-3",
+              "px-2",
+              "font-sansCond",
+              "uppercase",
+              "tracking-wide",
+              "border-b-4",
+              "border-b-transparent",
+              "transition-colors",
+              "duration-300",
+              "hocus:border-b-primary-400",
+              "selected:border-b-primary-200",
+              "hocus:selected:border-b-primary-200",
+            ].join(" ")}
+            value={value}
+          >
+            {label}
+          </RadixTabs.Trigger>
+        ))}
+      </RadixTabs.List>
+      {options.map(({ value, content }) => (
+        <RadixTabs.Content key={value} value={value}>
+          {content}
+        </RadixTabs.Content>
+      ))}
+    </RadixTabs.Root>
   );
 }
-
-export type TabsProps = Omit<
-  React.ComponentPropsWithoutRef<"div">,
-  "children" | "onChange"
-> & {
-  children: Array<ReactElement<TabProps>>;
-  value: number;
-  onChange: (index: number) => void;
-};
-
-export const Tabs = ({ className, children, value, onChange }: TabsProps) => {
-  return (
-    <div
-      role="tablist"
-      className={cx("flex", "gap-2", "items-center", "max-w-fit", className)}
-    >
-      {React.Children.map(children, (child, index) =>
-        React.cloneElement(child, {
-          ...child.props,
-          key: child.props.key || child.props.id || index,
-          "aria-selected": index === value,
-          onClick: (event: React.MouseEvent<HTMLButtonElement>) => {
-            child.props.onClick?.(event);
-            onChange(index);
-          },
-        })
-      )}
-    </div>
-  );
-};
