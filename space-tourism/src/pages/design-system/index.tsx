@@ -31,7 +31,6 @@ const DesignSystemPage: NextPage = () => {
         <section id="typography" className="flex flex-col gap-4 md:gap-6">
           <NumberedTitle index="01">Typography</NumberedTitle>
           <div className="flex flex-wrap md:flex-nowrap gap-6">
-            {/* Headings */}
             <div className="flex flex-col gap-4 md:basis-full">
               <div>
                 <p className="text-accent-500">
@@ -64,7 +63,6 @@ const DesignSystemPage: NextPage = () => {
                 <Heading level={5}>So, you want to travel to space</Heading>
               </div>
             </div>
-            {/* Subheadings & Body text */}
             <div className="flex flex-col gap-4 md:basis-full">
               <div>
                 <p className="text-accent-500">
