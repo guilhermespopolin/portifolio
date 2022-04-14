@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import type { NextPage } from "next";
 
 import Head from "next/head";
@@ -7,9 +9,12 @@ import { NumberedTitle } from "@/components/NumberedTitle";
 import { ExploreLink } from "@/components/ExploreLink";
 import { Navigation } from "@/components/Navigation";
 import { Tabs } from "@/components/Tabs";
+import { TabsIndexed } from "@/components/TabsIndexed";
 import { Hue } from "./Hue";
 
 const DesignSystemPage: NextPage = () => {
+  const [tabsValue, setTabsValue] = useState("0");
+
   return (
     <>
       <Head>
@@ -120,26 +125,46 @@ const DesignSystemPage: NextPage = () => {
             />
             <p className="py-4 text-accent-500 text-center">Navigation Bar</p>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-4 md:gap-8">
+          <div className="flex flex-wrap items-center justify-around gap-4">
             <div>
               <ExploreLink href="#">Explore</ExploreLink>
-              <p className="py-4 text-center text-accent-500">
+              <p className="py-16 text-center text-accent-500">
                 Landing Page Main Button
               </p>
             </div>
-            <div>
-              <Tabs
-                options={[
-                  { value: "moon", label: "Moon", content: null },
-                  { value: "mars", label: "Mars", content: null },
-                  {
-                    value: "europa",
-                    label: "Europa",
-                    content: null,
-                  },
-                ]}
-              />
-              <p className="py-4 text-center text-accent-500">Tabs</p>
+            <div className="flex flex-col items-center gap-12">
+              <div>
+                <Tabs
+                  defaultValue="moon"
+                  options={[
+                    { value: "moon", label: "Moon", content: null },
+                    { value: "mars", label: "Mars", content: null },
+                    {
+                      value: "europa",
+                      label: "Europa",
+                      content: null,
+                    },
+                  ]}
+                />
+                <p className="py-4 text-center text-accent-500">Tabs</p>
+              </div>
+              <div className="inline-flex flex-col items-center gap-4">
+                <TabsIndexed
+                  value={tabsValue}
+                  onValueChange={(value) => setTabsValue(value)}
+                  length={3}
+                  orientation="vertical"
+                />
+                <p className="text-accent-500">Tabs Indexed (vertical)</p>
+              </div>
+              <div className="inline-flex flex-col items-center gap-4">
+                <TabsIndexed
+                  value={tabsValue}
+                  onValueChange={(value) => setTabsValue(value)}
+                  length={3}
+                />
+                <p className="text-accent-500">Tabs Indexed (horizontal)</p>
+              </div>
             </div>
           </div>
         </section>
