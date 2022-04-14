@@ -2,7 +2,7 @@ import React, { ReactNode, ComponentProps } from "react";
 
 import * as RadixTabs from "@radix-ui/react-tabs";
 
-export type IndicatorProps = Pick<
+export type TabsIndexedProps = Pick<
   ComponentProps<typeof RadixTabs.Root>,
   "value" | "onValueChange" | "defaultValue" | "orientation"
 > & {
@@ -14,7 +14,7 @@ export function TabsIndexed({
   length,
   children,
   ...radixTabsProps
-}: IndicatorProps) {
+}: TabsIndexedProps) {
   if (length < 2) {
     console.warn(
       "There is no reason of using <TabsIndexed /> with less then 2 tabs to toggle between"
