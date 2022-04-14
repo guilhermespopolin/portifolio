@@ -10,7 +10,7 @@ type TabOption = {
 
 export type TabsProps = Pick<
   ComponentProps<typeof RadixTabs.Root>,
-  "defaultValue"
+  "value" | "onValueChange" | "defaultValue"
 > & {
   options: Array<TabOption>;
 };
