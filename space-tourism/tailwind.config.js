@@ -40,7 +40,7 @@ module.exports = {
   plugins: [
     plugin(function ({ addVariant }) {
       addVariant("hocus", ["&:hover", "&:focus"]);
-      addVariant("selected", "[aria-selected='true']");
+      addVariant("selected", "&[aria-selected='true']");
     }),
   ],
 };
