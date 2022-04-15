@@ -1,6 +1,6 @@
 import cx from "classnames";
 
-import { hexToRgb } from "./color-converter.helper";
+import { hexToRgb } from "./DesignSystem.helpers";
 
 export type HueProps = React.HTMLAttributes<HTMLDivElement> & {
   color: string;
