@@ -15,7 +15,3 @@ body {
   font-size: theme("fontSize.lg");
   line-height: theme("lineHeight.6");
 }
-
-#__next {
-  @apply min-h-screen;
-}
