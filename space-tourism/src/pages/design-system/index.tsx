@@ -9,6 +9,7 @@ import { NumberedTitle } from "@/components/NumberedTitle";
 import { ExploreLink } from "@/components/ExploreLink";
 import { Navigation } from "@/components/Navigation";
 import { Tabs } from "@/components/Tabs";
+import { TabsDotted } from "@/components/TabsDotted";
 import { TabsIndexed } from "@/components/TabsIndexed";
 import { Hue } from "./Hue";
 
@@ -147,6 +148,10 @@ const DesignSystemPage: NextPage = () => {
                   ]}
                 />
                 <p className="py-4 text-center text-accent-500">Tabs</p>
+              </div>
+              <div className="inline-flex flex-col items-center gap-4">
+                <TabsDotted length={3} />
+                <p className="text-accent-500">Tabs Dotted</p>
               </div>
               <div className="inline-flex flex-col items-center gap-4">
                 <TabsIndexed
