@@ -12,8 +12,16 @@ export const Navigation = ({ className, links }: NavigationProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <nav className={cx("font-sansCond bg-primary-700", className)}>
-      <ul className="flex justify-center gap-8">
+    <nav
+      className={cx(
+        "flex items-center justify-between px-4 md:px-8 font-sansCond bg-primary-700",
+        className
+      )}
+    >
+      <div className="flex-shrink-0">
+        <img src="/assets/shared/logo.svg" alt="space tourism logo" />
+      </div>
+      <ul className="inline-flex justify-center gap-8">
         {links.map(({ label, href }, index) => {
           const paddedIndex = index.toString().padStart(2, "0");
           const isActive = activeIndex === index;
