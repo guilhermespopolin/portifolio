@@ -171,5 +171,3 @@ export function DesignSystem() {
     </Container>
   );
 }
-
-export default DesignSystem;

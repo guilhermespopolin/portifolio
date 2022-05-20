@@ -12,7 +12,6 @@ body {
   background-color: theme("colors.primary.500");
   color: theme("colors.white");
   font-family: theme("fontFamily.sans");
-  line-height: theme("lineHeight.6");
 
-  @apply text-base md:text-lg;
+  @apply text-base md:text-lg leading-7;
 }
