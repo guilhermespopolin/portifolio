@@ -6,6 +6,7 @@ export const ExploreLink = ({ className, ...others }: ExploreLinkProps) => (
   <a
     className={cx(
       "relative",
+      "z-0",
       "inline-flex",
       "items-center",
       "justify-center",
@@ -23,17 +24,15 @@ export const ExploreLink = ({ className, ...others }: ExploreLinkProps) => (
       "after:content–['']",
       "after:absolute",
       "after:z-[-1]",
-      "after:bg-gray-400",
+      "after:bg-white/20",
       "after:w-full",
       "after:h-full",
       "after:rounded-full",
       "after:opacity-0",
       "after:transition",
       "after:duration-300",
-      "hover:after:scale-150",
-      "hover:after:opacity-100",
-      "focus:after:scale-150",
-      "focus:after:opacity-100",
+      "hocus:after:scale-150",
+      "hocus:after:opacity-100",
       className
     )}
     {...others}
